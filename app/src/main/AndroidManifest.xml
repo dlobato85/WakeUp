@@ -11,6 +11,8 @@
         android:theme="@style/AppTheme">
 
         <receiver android:name=".Alarm_Receiver" />
+        <service android:name=".RingtonePlayingService"
+            android:enabled="true"/>
 
         <activity android:name=".MainActivity">
             <intent-filter>

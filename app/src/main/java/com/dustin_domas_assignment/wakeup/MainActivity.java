@@ -58,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
         //create onClickListeners for buttons
 
         Button start_b = (Button) findViewById(R.id.start_button);
@@ -97,6 +99,13 @@ public class MainActivity extends AppCompatActivity {
                 set_alarm_text("Alarm was set to " +hour + " : " +minute );
 
 
+                //put in extra string into intent
+                //which will tell that you press START ALARm
+                //must be before send to pendingIntent
+                intent.putExtra("extra", "alarm ON");
+
+
+
             //Create pending intent
                 pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0,
                       intent, PendingIntent.FLAG_UPDATE_CURRENT );
@@ -126,9 +135,16 @@ public class MainActivity extends AppCompatActivity {
                 alar_manager.cancel(pendingIntent);
 
 
-/*************************************************************************/
-                //STOPPED ON VIDEO PART5
-                //ANNA XU channel Youtube
+                //put extra string into intent
+                //to set OFFFFF button
+                intent.putExtra("extra", "alarm OFF");
+
+
+                //stop the ringtone
+                //sendBroadcast will send signal to alarm receiver
+                sendBroadcast(intent);
+
+
 
             }
         }); // end of stop_b

@@ -28,11 +28,28 @@ public class Alarm_Receiver extends BroadcastReceiver {
 
 
 
+        //fetch long from intent
+        //which will tell us what value was selected from spinner
+        //also tells if value selected Alarm ON or Alarm OFF
+        Integer get_sound = intent.getExtras().getInt("sound_choose_pass");
+
+        Log.i ("THIS SOUNDS ID RECEIVER", get_sound.toString());
+
+
+
+
+
         Intent service_intent = new Intent(context, RingtonePlayingService.class);
 
         //pass the extra string from MainActivity to RingtonePlayi....
 
         service_intent.putExtra("extra",get_string);
+
+
+
+        //pass sound id to RingtonePlayingService
+        service_intent.putExtra("sound_chooce_pass", get_sound);
+
 
 
         context.startService(service_intent);

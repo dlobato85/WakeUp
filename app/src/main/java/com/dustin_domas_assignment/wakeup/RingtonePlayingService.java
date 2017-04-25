@@ -11,6 +11,8 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.util.Random;
+
 
 public class RingtonePlayingService extends Service {
 
@@ -46,6 +48,11 @@ public class RingtonePlayingService extends Service {
 
 
 
+        //fetch sound id  value from alarmReceiver
+        Integer sound_pick = intent.getExtras().getInt("sound_chooce_pass");
+        Log.i ("Sound RINGTONESERViCE" ,sound_pick.toString());
+
+
 
 
         //converts extra string from intent to 1 or 2
@@ -61,6 +68,32 @@ public class RingtonePlayingService extends Service {
         }
 
 
+        //Setting Notifications
+        NotificationManager notificationManager = (NotificationManager)
+                getSystemService(NOTIFICATION_SERVICE);
+
+        //set the intent that will go to mainActivity after notification pop-up
+        Intent intent_main = new Intent(this.getApplicationContext(), MainActivity.class);
+
+        //must use pending Intent in order to pas value to notification builder
+        PendingIntent pending_main = PendingIntent.getActivity(this, 0,
+                intent_main, 0);
+
+
+        Notification notification = new Notification.Builder(this)
+                .setContentTitle("ALARM IS GOING OFF")
+                .setContentText("Click me")
+                .setContentIntent(pending_main)
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setAutoCancel(true)
+                .build();
+
+
+        //notificationManager.notify(0, notification);
+
+
+
+
         //statements to call or cancel alarm sound
 
         //if no music and user press alarm ON
@@ -69,39 +102,55 @@ public class RingtonePlayingService extends Service {
 
             Log.i ("THERE IS NO MUSIC", "WANT TO START!!!!!!!!!!!!!!!!!");
 
-            media_song = MediaPlayer.create(this, R.raw.example_sound);
-            media_song.start();
 
             this.isRunning = true;
             this.startId = 0;
 
 
-
-
-
-            //Setting Notifications
-            NotificationManager notificationManager = (NotificationManager)
-                    getSystemService(NOTIFICATION_SERVICE);
-
-            //set the intent that will go to mainActivity after notification pop-up
-            Intent intent_main = new Intent(this.getApplicationContext(), MainActivity.class);
-
-            //must use pending Intent in order to pas value to notification builder
-            PendingIntent pending_main = PendingIntent.getActivity(this, 0,
-                    intent_main, 0);
-
-
-            Notification notification = new Notification.Builder(this)
-                    .setContentTitle("ALARM IS GOING OFF")
-                    .setContentText("Click me")
-                    .setContentIntent(pending_main)
-                    .setSmallIcon(R.mipmap.ic_launcher)
-                    .setAutoCancel(true)
-                    .build();
-
-
+            //allow notification to display when alarm is on
             notificationManager.notify(0, notification);
 
+
+
+
+
+            //play the song based on id from MainActivity Spinner
+
+            if(sound_pick == 0 ) {
+                // randomly picked audio file
+
+                int minimum_n = 1;
+                int max_n = 2;
+
+                Random random = new Random();
+                int random_n = random.nextInt(max_n + minimum_n );
+
+                Log.i ("This is random song", String.valueOf(random_n));
+
+
+                if(random_n == 1) {
+                    media_song = MediaPlayer.create(this, R.raw.example_sound);
+                    media_song.start();
+                }
+                else  if (random_n == 2) {
+                    media_song = MediaPlayer.create(this, R.raw.tv_wave_example);
+                    media_song.start();
+                }
+
+            }
+            else if (sound_pick == 1){
+
+                media_song = MediaPlayer.create(this, R.raw.example_sound);
+                media_song.start();
+
+            }
+
+            else if (sound_pick == 2){
+
+                media_song = MediaPlayer.create(this, R.raw.tv_wave_example);
+                media_song.start();
+
+            }
 
 
         }
@@ -134,6 +183,11 @@ public class RingtonePlayingService extends Service {
 
             this.isRunning = false;
             this.startId = 0;
+
+
+
+
+
         }
 
         //if user presses and user presssed alarm ON
@@ -144,6 +198,10 @@ public class RingtonePlayingService extends Service {
 
             this.isRunning = false;
             this.startId = 1;
+
+
+
+
         }
 
         //Do nothing if anyhting else random happens

@@ -6,14 +6,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
 
     AlarmManager alar_manager;
@@ -23,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     Context context;
 
     PendingIntent pendingIntent;
+
+    int choose_sound;
 
 
 
@@ -105,6 +112,14 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("extra", "alarm ON");
 
 
+                //put extra long value into intent
+                //tells the cloack that you want certaint value from spinner
+
+                intent.putExtra("sound_choose_pass", choose_sound);
+                Log.i("Choose Sound ID MainA", String.valueOf(choose_sound));
+
+
+
 
             //Create pending intent
                 pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0,
@@ -118,6 +133,15 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });// end of start_b Listener
+
+
+
+
+
+
+
+
+
 
 
         Button stop_b = (Button) findViewById(R.id.stop_button);
@@ -139,6 +163,9 @@ public class MainActivity extends AppCompatActivity {
                 //to set OFFFFF button
                 intent.putExtra("extra", "alarm OFF");
 
+                //must put extra long to alarm off to prevent crashes if null
+                intent.putExtra("sound_choose_pass", choose_sound);
+
 
                 //stop the ringtone
                 //sendBroadcast will send signal to alarm receiver
@@ -154,11 +181,56 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.sound_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+
+        //onClickListener to register variable from spinner
+        spinner.setOnItemSelectedListener(this);
+
+
+
+
+
+
     }//end of onCreate
+
+
 
     private void set_alarm_text(String s) {
 
         update_textview.setText(s);
+
+    }
+
+
+
+
+    //method for spinner class
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long id) {
+        // An item was selected. You can retrieve the selected item using
+        // parent.getItemAtPosition(pos)
+
+        //finding the id that user have selected
+        choose_sound = (int) id;
+        Toast.makeText(this, "This is id number"
+                + id, Toast.LENGTH_SHORT).show();
+
+
+
+    }
+
+    //method for spinner class
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+        // Another interface callback
+
 
     }
 }

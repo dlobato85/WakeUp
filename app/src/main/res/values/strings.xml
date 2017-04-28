@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">WakeUp</string>
+
+    <string-array name="sound_array">
+
+        <item>Will pay Random Song</item>
+
+        <item>example_sound</item>
+        <item>tv_wave_example</item>
+
+    </string-array>
+
+
+
 </resources>

@@ -115,7 +115,7 @@ public class RingtonePlayingService extends Service {
 
 
             //play the song based on id from MainActivity Spinner
-
+/*
             if(sound_pick == 0 ) {
                 // randomly picked audio file
 
@@ -131,24 +131,30 @@ public class RingtonePlayingService extends Service {
                 if(random_n == 1) {
                     media_song = MediaPlayer.create(this, R.raw.example_sound);
                     media_song.start();
+                    media_song.setLooping(true);
                 }
                 else  if (random_n == 2) {
                     media_song = MediaPlayer.create(this, R.raw.tv_wave_example);
                     media_song.start();
+                    media_song.setLooping(true);
                 }
 
             }
-            else if (sound_pick == 1){
+
+      */
+            if (sound_pick == 0){
 
                 media_song = MediaPlayer.create(this, R.raw.example_sound);
                 media_song.start();
+                media_song.setLooping(true);
 
             }
 
-            else if (sound_pick == 2){
+            else if (sound_pick == 1){
 
                 media_song = MediaPlayer.create(this, R.raw.tv_wave_example);
                 media_song.start();
+                media_song.setLooping(true);
 
             }
 
@@ -177,8 +183,9 @@ public class RingtonePlayingService extends Service {
 
             Log.i ("THERE IS NO MUSIC", "WHANT TO END!!!!!!!!!!!!!!!!!");
 
-            media_song.stop();
-            media_song.reset();
+          //  media_song.stop();
+            //media_song.stop();
+            //media_song.reset();
 
 
             this.isRunning = false;

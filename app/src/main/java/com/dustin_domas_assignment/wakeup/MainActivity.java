@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+import static java.util.Calendar.AM_PM;
+
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
 
@@ -31,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     int choose_sound;
 
+
+    Spinner spinner;
 
 
 
@@ -74,19 +78,53 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
+
+                /*Calendar now = Calendar.getInstance().getInstance();
+                
+               // int a = now.get(Calendar.AM_PM);
+               // String then = String.valueOf(now);
+
+               // String result = "!!";
+
+              //  calendar.get(Calendar.AM_PM);
+
+
+               //void bo = calendar.set(Calendar.AM_PM,Calendar.AM);
+
+
+               // String result = null;
+                //if(calendar.get(Calendar.AM_PM) == Calendar.AM)
+                {
+
+                    result = "AM";
+                }
+
+                else if(AM_PM == Calendar.PM){
+
+                    result = "PM";
+                }
+                */
+                
+                
                 //setting calender to the hour and minute
                 calendar.set(Calendar.HOUR_OF_DAY, alarm_timepicker.getHour());
                 calendar.set(Calendar.MINUTE, alarm_timepicker.getMinute());
+
+                //calendar.set(alarm_timepicker.set(AM_PM, Calendar.PM), AM_PM);
+
 
 
                 // get the int of time
                 int h = alarm_timepicker.getHour();
                 int m = alarm_timepicker.getMinute();
 
+              //  int cc = alarm_timepicker.get()
+
+
+
 
 
                 //converting to String
-
                 String hour = String.valueOf(h);
                 String minute = String.valueOf(m);
 
@@ -95,15 +133,29 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 //set pm
                 if (h > 12) {
                     hour = String.valueOf(h - 12);
+                   // calendar.set(Calendar.AM_PM, Calendar.PM);
                 }//end of if
 
+                else {
+                 //   calendar.set(Calendar.AM_PM, Calendar.AM);
+                }
+
+                //set formation for minutes
                 if (m < 10) {
                     minute = "0" + String.valueOf(minute);
                 }//end of
 
+               /*if(spinner.equals("PM"))
+                {
+                    calendar.set(Calendar.AM_PM, Calendar.PM);
+                }
+                else {
+                    calendar.set(Calendar.AM_PM, Calendar.AM);
+                }
+*/
 
                 //will update textview
-                set_alarm_text("Alarm was set to " +hour + " : " +minute );
+                set_alarm_text("Alarm was set to " +hour + " : " +minute + "  ");
 
 
                 //put in extra string into intent

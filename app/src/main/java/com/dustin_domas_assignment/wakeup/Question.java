@@ -24,7 +24,7 @@ public class Question extends AppCompatActivity {
         IDKEY = 0;
     }
 
-    public Question(String question, String answer, String opB, String opC, String opD,  int idkey){
+    public Question(  int idkey,String question, String answer, String opB, String opC, String opD){
         QUESTION = question;
         ANSWER = answer;
         optionB = opB;

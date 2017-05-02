@@ -3,10 +3,8 @@
 
     <string-array name="sound_array">
 
-        <item>Will pay Random Song</item>
-
-        <item>example_sound</item>
-        <item>tv_wave_example</item>
+        <item>Pleasant Sound</item>
+        <item>TV Wave Sound</item>
 
     </string-array>
 

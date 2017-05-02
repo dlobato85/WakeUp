@@ -10,17 +10,26 @@ public class Question extends AppCompatActivity {
 
     private String QUESTION;
     private String ANSWER;
+    private String optionB;
+    private String optionC;
+    private String optionD;
     private int IDKEY;
 
     public Question(){
         QUESTION = "";
         ANSWER = "";
+        optionB = "";
+        optionC = "";
+        optionD = "";
         IDKEY = 0;
     }
 
-    public Question(String question, String answer, int idkey){
+    public Question(String question, String answer, String opB, String opC, String opD,  int idkey){
         QUESTION = question;
         ANSWER = answer;
+        optionB = opB;
+        optionC = opC;
+        optionD = opD;
         IDKEY = idkey;
 
 
@@ -41,6 +50,18 @@ public class Question extends AppCompatActivity {
     public void setANSWER(String Answer) {
         this.ANSWER = Answer;
     }
+
+    public String getOptionB(){return optionB;};
+
+    public void setOptionB(String optB){this.optionB = optB;};
+
+    public String getOptionC(){return optionC;};
+
+    public void setOptionC(String optC){this.optionC = optC;};
+
+    public String getOptionD(){return optionD;};
+
+    public void setOptionD(String optD){this.optionD = optD;};
 
     public int getIDKEY() {
         return IDKEY;

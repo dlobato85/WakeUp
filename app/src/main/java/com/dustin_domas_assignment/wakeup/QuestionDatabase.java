@@ -74,24 +74,24 @@ public class QuestionDatabase extends SQLiteOpenHelper {
         //this.addContentValues(historyQuest4);
 
         //http://www.triviaplaying.com/70_history_Q_.htm
-        Question historyQuest1 = new Question("What was the first country to reqognize Mexico's independence in 1836?","The U.S.","Russia","Venezuela","Brazil", 1);
+        Question historyQuest1 = new Question(1,"What was the first country to reqognize Mexico's independence in 1836?","The U.S.","Russia","Venezuela","Brazil");
         this.addContentValues(historyQuest1);
 
-        Question historyQuest2 = new Question("What structure was 26.5 miles long until 1989?","The Berlin Wall","Great Wall of China","U.S.S.R. ","",2);
+        Question historyQuest2 = new Question(2,"What structure was 26.5 miles long until 1989?","The Berlin Wall","Great Wall of China","U.S.S.R. ","");
         this.addContentValues(historyQuest2);
 
         //http://www.triviacountry.com/154-History-trivia.htm
-        Question historyQuest3 = new Question("Which U.S. President was shot five days after the end of the American Civil War?","Abraham Lincoln","John F. Kennedy","","",3);
+        Question historyQuest3 = new Question(3,"Which U.S. President was shot five days after the end of the American Civil War?","Abraham Lincoln","John F. Kennedy","","");
         this.addContentValues(historyQuest3);
 
-        Question historyQuest4 = new Question("What was the name of the Austrian-born dictator who succeeded Hindenburg as Germany's head of state?","Adolf Hitler","Goebells","","",4);
+        Question historyQuest4 = new Question(4,"What was the name of the Austrian-born dictator who succeeded Hindenburg as Germany's head of state?","Adolf Hitler","Goebells","","");
         this.addContentValues(historyQuest4);
 
-        Question historyQuest5 = new Question("Which country was ruled by the Romanov dynasty 1613-1917?","Russia","China","Rome","Mongolia",5);
+        Question historyQuest5 = new Question(5,"Which country was ruled by the Romanov dynasty 1613-1917?","Russia","China","Rome","Mongolia");
         this.addContentValues(historyQuest5);
 
         //http://www.triviaplaying.com/199-%20trivia-questions-kids.htm
-        Question historyQuest6 = new Question("What was the first name of the first man in space?","Yuri","Neil","Tyler","John",6);
+        Question historyQuest6 = new Question(6,"What was the first name of the first man in space?","Yuri","Neil","Tyler","John");
         this.addContentValues(historyQuest6);
 
 
@@ -99,18 +99,18 @@ public class QuestionDatabase extends SQLiteOpenHelper {
 
     private void MathBank(){
 
-        Question mathQuest1 = new Question("43+23+96 = ?", "162","158","152","172",100);
+        Question mathQuest1 = new Question(100,"43+23+96 = ?", "162","158","152","172");
         this.addContentValues(mathQuest1);
 
-        Question mathQuest2 = new Question("191-49+82 = ?", "224","222","234","223",101);
+        Question mathQuest2 = new Question(101, "191-49+82 = ?", "224","222","234","223");
         this.addContentValues(mathQuest2);
 
-        Question mathQuest3 = new Question("43+23+96 = ?", "162","158","152","172",100);
+        Question mathQuest3 = new Question(102, "43+23+96 = ?", "162","158","152","172");
         this.addContentValues(mathQuest3);
     }
 
     private void CountriesAndCapitolsBank(){
-        Question countryQuest1 = new Question("What is the capital of Canada", "Ottawa","Montreal","Toronto","Quebec",200);
+        Question countryQuest1 = new Question(200,"What is the capital of Canada", "Ottawa","Montreal","Toronto","Quebec");
         this.addContentValues(countryQuest1);
 
     }

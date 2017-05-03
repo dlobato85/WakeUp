@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
@@ -17,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -40,8 +42,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     int choose_sound;
 
+    private String format = "";
 
-    Spinner spinner;
+
+   // Spinner spinner;
 
 
 
@@ -50,12 +54,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         this.context = this;
+
+/*
+        ImageView imageView = (ImageView) findViewById(R.id.imageBackgroud);
+        SVGParser svg = SVGParser.getSVGFromResource(getResources(), R.drawable.background);
+//The following is needed because of image accelaration in some devices such as samsung
+        imageView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        imageView.setImageDrawable(svg.createPictureDrawable());
+
+*/
 
 
         //initialize timepicker
         alarm_timepicker = (TimePicker) findViewById(R.id.timePicker);
+
+
 
         //initialize alarm manager
         alar_manager = (AlarmManager) getSystemService(ALARM_SERVICE);
@@ -89,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                      calendar.set(Calendar.HOUR_OF_DAY, alarm_timepicker.getHour());
                      calendar.set(Calendar.MINUTE, alarm_timepicker.getMinute());
 
+
                     //calendar.set(alarm_timepicker.set(AM_PM, Calendar.PM), AM_PM);
 
 
@@ -112,8 +127,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 //set pm
                 if (h > 12) {
                     hour = String.valueOf(h - 12);
-                   // calendar.set(Calendar.AM_PM, Calendar.PM);
+                    format = "PM";
+
                 }//end of if
+                else {
+                    format = "AM";
+
+                }
 
 
 
@@ -133,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
                 //will update textview
-                set_alarm_text("Alarm was set to " +hour + " : " +minute + "  ");
+                set_alarm_text("Time was set to: " +hour + " : " +minute + "  " + format);
 
 
                 //put in extra string into intent
@@ -172,7 +192,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     //do something when unchecked
 
                     //will update textview
-                    set_alarm_text("AAAALARM IS OFFF!!!!");
+                    set_alarm_text("This madness has stopped!!!");
 
 
                     //will cancel the alarm
@@ -371,13 +391,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
-
+       
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.sound_array, android.R.layout.simple_spinner_item);
+                R.array.sound_array, android.R.layout.simple_list_item_checked);
 
         // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_list_item_checked);
 
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
@@ -445,14 +465,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             ((TextView)
                     new AlertDialog.Builder(MainActivity.this,R.style.DialogBox)
-                            .setTitle("Developers Of WakeUp ")
+                            //title is needed to create AlertDialio, this one will not show anything
+                            .setTitle(Html.fromHtml("<h1> &nbsp; WakeUP     &nbsp;   </h1>"))
                             .setMessage(Html.fromHtml("<h2>Dustin Lobato</h2>"
                                     + "<h2>Domas Budrys</h2>"
                                     +"<br>"
+                                    + "<h3>Alarm Sound Options:</h3>"
+                                    + "<font color='#FF7F27'> <a href=\"http://soundbible.com/\">soundbible.com</a> </font>"
                                     + "<h3>Icons:</h3>"
-                                    + "<font color='#FF7F27'><a href=\"https://icons8.com/android-icons/\">icons8.com</a> </font>"
-                                    + "<h3>Code Credit:</h3>"
-                                    + "<font color='#FF7F27'><a href=\"https://code.tutsplus.com/tutorials/android-sdk-create-a-drawing-app-touch-interaction--mobile-19202\">Tutplus Tutorial</a> </font>"
+                                    + "<font color='#FF7F27'><a href=\"https://icons8.com/\">icons8.com</a> </font>"
+                                    +"<br>"
+                                    + "<h3>Background:</h3>"
+                                    + "<font color='#FF7F27'><a href=\"https://pixabay.com/en/yellow-red-blue-green-293875/\">pixabay.com</a> </font>"
                                     +"<br>"
                                     + "<font color='#FF7F27'><a href=\"http://stackoverflow.com/questions/10095335/android-link-in-dialog\">Stackoverflow</a> </font>"
                             ))

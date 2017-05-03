@@ -4,44 +4,40 @@ import android.icu.util.Calendar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ToggleButton;
 
+import java.util.ArrayList;
+import java.util.List;
 
-public class Alarm extends AppCompatActivity {
 
-    public int alaramID;
-    public int numberOfQuestions;
-    public Calendar time;
+public class AlarmCard extends AppCompatActivity {
+
+
+    public String time;
     public String title;
     public ToggleButton togglesAlarm;
 
-    public Alarm(){
-        alaramID = 0;
-        numberOfQuestions = 0;
+    public AlarmCard(){
+
         title = "Alarm";
+
 
     }
 
-    public Alarm(int ic, int num, Calendar tm, String title){
+    public AlarmCard( String tm, String title){
 
-        this.alaramID = ic;
-        this.numberOfQuestions = num;
+
         this.time = tm;
         this.title = title;
     }
 
 
-    public int getAlaramID() {
-        return alaramID;
-    }
 
-    public void setAlaramID(int icon) {
-        this.alaramID = icon;
-    }
 
-    public Calendar getTime() {
+
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Calendar time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

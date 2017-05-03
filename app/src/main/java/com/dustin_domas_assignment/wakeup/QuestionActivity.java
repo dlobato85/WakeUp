@@ -2,6 +2,7 @@ package com.dustin_domas_assignment.wakeup;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -23,7 +24,7 @@ public class QuestionActivity extends AppCompatActivity {
     ProgressBar timeLeft;
     Button option_A, option_B, option_C, option_D;
 
-    Alarm activeAlarm;
+
     int questionID = 0;
     int numberOfQuestions;
     int numAnsweredRight;
@@ -111,14 +112,15 @@ public class QuestionActivity extends AppCompatActivity {
 
     public void checkAnswer(String userAnswer){
 
-        if(activeQuestion.getANSWER() == userAnswer ){
+        if(activeQuestion.getANSWER().equals(userAnswer) ){
             //insert notification eliminator
             Intent intent = new Intent(this, MainActivity.class);
+            Bundle bund = new Bundle();
             startActivity(intent);
         }
         else if(activeQuestion.getANSWER() == userAnswer && answerFlag == false){
 
-
+//add logic to print incorrect answer
            setQuestion();
 
         }
@@ -126,5 +128,7 @@ public class QuestionActivity extends AppCompatActivity {
             setQuestion();
         }
     }
+
+
 
 }

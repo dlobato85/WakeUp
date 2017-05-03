@@ -21,12 +21,9 @@ import java.util.List;
 
 public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHolder> {
 
-//List<Alarm> adapterAlarms;
+    List<AlarmCard> adapterAlarms;
 
-     AlarmAdapter( List<Alarm> data) {
-        //this.adapterAlarms = data;
 
-    }
 
 
 //this will create the Card view with the alarm attributes
@@ -34,21 +31,27 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
 
         TextView timeDisplay;
         TextView alaDays;
-        ImageView icon;
+        //ImageView icon;
 
-        ToggleButton alaToggle;
-        CardView cardView;
+        //ToggleButton alaToggle;
+        //CardView cardView;
 
         AlarmViewHolder(View view){
             super(view);
 
-            cardView = (CardView) view.findViewById(R.id.card_view);
-
-            icon = (ImageView) view.findViewById(R.id.alarmImage);
+          //  cardView = (CardView) view.findViewById(R.id.card_view);
+            //icon = (ImageView) view.findViewById(R.id.alarmImage);
             timeDisplay = (TextView) view.findViewById(R.id.timeDisplay);
             alaDays = (TextView) view.findViewById(R.id.daysTV);
+            //laToggle = (ToggleButton) view.findViewById(R.id.alarmToggle);
 
         }
+
+
+    }
+
+    AlarmAdapter( List<AlarmCard> data) {
+        this.adapterAlarms = data;
     }
 
     @Override
@@ -58,20 +61,24 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
 
     @Override
     public AlarmViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_alarm_item,parent,false);
+
+        View view2 = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.custom_alarm_item,parent,false);
 
         //Initialize the the view holder with the item layout
         AlarmViewHolder alarmViewHolder = new AlarmViewHolder(view2);
-        return null;
+        return alarmViewHolder;
     }
 
     @Override
     public void onBindViewHolder(AlarmViewHolder holder, int position) {
 
+        holder.timeDisplay.setText("8:00 AM");
+        holder.alaDays.setText("Every Day");
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return adapterAlarms.size();
     }
 }

@@ -69,7 +69,7 @@ public class RingtonePlayingService extends Service {
                 getSystemService(NOTIFICATION_SERVICE);
 
         //set the intent that will go to mainActivity after notification pop-up
-        Intent intent_main = new Intent(this.getApplicationContext(), MainListActivity.class);
+        Intent intent_main = new Intent(this.getApplicationContext(), MainActivity.class);
 
         //must use pending Intent in order to pas value to notification builder
         PendingIntent pending_main = PendingIntent.getActivity(this, 0,

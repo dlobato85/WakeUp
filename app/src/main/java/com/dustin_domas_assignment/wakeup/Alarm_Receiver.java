@@ -37,15 +37,19 @@ public class Alarm_Receiver extends BroadcastReceiver {
         //pass the extra string from MainActivity to RingtonePlayi....
 
        service_intent.putExtra("extra",get_string);
-
+        String state = intent.getExtras().getString("extra");
         //pass sound id to RingtonePlayingService
         service_intent.putExtra("sound_chooce_pass", get_sound);
 
        context.startService(service_intent);
 
-        Intent quesIntent = new Intent(context, QuestionActivity.class);
-        quesIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(quesIntent);
+
+        //fixes alarm on off switch triggering activity
+        if( state.equals("alarm ON")) {
+            Intent quesIntent = new Intent(context, QuestionActivity.class);
+            quesIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(quesIntent);
+        }
 
 
 

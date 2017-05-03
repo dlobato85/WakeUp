@@ -4,14 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dustin_domas_assignment.wakeup.MainActivity">
+    tools:context="com.dustin_domas_assignment.wakeup.MainActivity"
+    >
+
+
+
+    <ImageView
+        android:id="@+id/imageBackgroud"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_dot">
+      <!--  android:src="@drawable/my_background"> -->
+</ImageView>
 
     <TimePicker
         android:id="@+id/timePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="4dp" />
+        tools:layout_editor_absoluteY="4dp"
+        android:timePickerMode="clock"
+        android:headerBackground="@color/colorPrimaryDark"
+        android:alpha=".65"/>
 <!--
     <Button
         android:id="@+id/start_button"
@@ -40,21 +54,32 @@
         android:id="@+id/update_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Did you set alarm "
+        android:textSize="18sp"
+        android:text="Choose your alarm wisely!"
         android:textAlignment="gravity"
         android:gravity="left"
 
 
         android:layout_alignBaseline="@+id/switch_button"
         android:layout_alignBottom="@+id/switch_button"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@drawable/border"
+        />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="@color/colorPrimary"
+        android:alpha=".65"
+        android:textSize="18sp"
+        android:popupBackground="@color/colorPrimary"
+
+
+
+        />
 
     <Switch
         android:id="@+id/switch_button"

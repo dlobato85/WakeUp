@@ -15,9 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Created by dustinlobato on 4/19/17.
- */
 
 public class QuestionActivity extends AppCompatActivity {
 

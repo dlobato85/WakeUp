@@ -4,9 +4,6 @@ import android.icu.util.Calendar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ToggleButton;
 
-/**
- * Created by dustinlobato on 4/19/17.
- */
 
 public class Alarm extends AppCompatActivity {
 

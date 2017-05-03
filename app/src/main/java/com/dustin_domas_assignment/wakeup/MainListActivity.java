@@ -12,9 +12,6 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by dustinlobato on 5/1/17.
- */
 
 public class MainListActivity extends AppCompatActivity {
 

@@ -19,7 +19,7 @@ import java.util.List;
 public class MainListActivity extends AppCompatActivity {
 
 
-    private List<Alarm> alarms;
+   // private List<Alarm> alarms;
 
     private ImageButton addAlarm;
     private RecyclerView rView;
@@ -43,10 +43,10 @@ public class MainListActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //icon_id = getDrawable(R.drawable.alarmclock);
-                alarms = new ArrayList<Alarm>();
-                alarms.add(new Alarm(R.id.alarmImage,"8:00","Everyday "));
+                //alarms = new ArrayList<Alarm>();
+               // alarms.add(new Alarm(R.id.alarmImage,"8:00","Everyday "));
 
-                createAdapter();
+                //createAdapter();
 
             }
 
@@ -57,9 +57,9 @@ public class MainListActivity extends AppCompatActivity {
     }
 
     private void createAdapter(){
-        AlarmAdapter alarmAdapter = new AlarmAdapter(alarms);
+       // AlarmAdapter alarmAdapter = new AlarmAdapter(alarms);
 
-        rView.setAdapter(alarmAdapter);
+       // rView.setAdapter(alarmAdapter);
     }
 
 

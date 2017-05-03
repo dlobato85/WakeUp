@@ -29,8 +29,6 @@ public class RingtonePlayingService extends Service {
     }//end of onBinder
 
 
-
-
     //This method will activate alarm to play at selected time
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -53,8 +51,6 @@ public class RingtonePlayingService extends Service {
         Log.i ("Sound RINGTONESERViCE" ,sound_pick.toString());
 
 
-
-
         //converts extra string from intent to 1 or 2
         assert state != null;
         if (state.equals("alarm ON")){
@@ -73,7 +69,7 @@ public class RingtonePlayingService extends Service {
                 getSystemService(NOTIFICATION_SERVICE);
 
         //set the intent that will go to mainActivity after notification pop-up
-        Intent intent_main = new Intent(this.getApplicationContext(), MainActivity.class);
+        Intent intent_main = new Intent(this.getApplicationContext(), MainListActivity.class);
 
         //must use pending Intent in order to pas value to notification builder
         PendingIntent pending_main = PendingIntent.getActivity(this, 0,
@@ -91,9 +87,7 @@ public class RingtonePlayingService extends Service {
 
         //notificationManager.notify(0, notification);
 
-
-
-
+       // startActivity(intent_main);
         //statements to call or cancel alarm sound
 
         //if no music and user press alarm ON
@@ -108,10 +102,7 @@ public class RingtonePlayingService extends Service {
 
 
             //allow notification to display when alarm is on
-            notificationManager.notify(0, notification);
-
-
-
+           notificationManager.notify(0, notification);
 
 
             //play the song based on id from MainActivity Spinner
@@ -172,9 +163,6 @@ public class RingtonePlayingService extends Service {
 
             this.isRunning= false;
             this.startId = 0;
-
-
-
         }
 
         //if user presses random button while no music playing and press alar OFF
@@ -191,10 +179,6 @@ public class RingtonePlayingService extends Service {
             this.isRunning = false;
             this.startId = 0;
 
-
-
-
-
         }
 
         //if user presses and user presssed alarm ON
@@ -205,10 +189,6 @@ public class RingtonePlayingService extends Service {
 
             this.isRunning = false;
             this.startId = 1;
-
-
-
-
         }
 
         //Do nothing if anyhting else random happens
@@ -238,11 +218,6 @@ public class RingtonePlayingService extends Service {
         super.onDestroy();
         this.isRunning = false;
     }
-
-
-
-
-
 
 
 }//end og RingtonePlayingService

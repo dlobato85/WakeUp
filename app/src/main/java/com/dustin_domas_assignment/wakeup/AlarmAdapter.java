@@ -23,10 +23,10 @@ import java.util.List;
 
 public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHolder> {
 
-List<Alarm> adapterAlarms;
+//List<Alarm> adapterAlarms;
 
      AlarmAdapter( List<Alarm> data) {
-        this.adapterAlarms = data;
+        //this.adapterAlarms = data;
 
     }
 
@@ -74,8 +74,6 @@ List<Alarm> adapterAlarms;
 
     @Override
     public int getItemCount() {
-        return adapterAlarms.size();
+        return 0;
     }
-
-
 }

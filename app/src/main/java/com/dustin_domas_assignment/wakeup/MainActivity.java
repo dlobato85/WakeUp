@@ -43,8 +43,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     Spinner spinner;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,8 +69,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         final Intent intent = new Intent(this.context, Alarm_Receiver.class);
 
 
-
-
         //creating switch button
 
         Switch mySwitch = null;
@@ -91,31 +87,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                     //calendar.set(alarm_timepicker.set(AM_PM, Calendar.PM), AM_PM);
 
-
-
                     // get the int of time
                      int h = alarm_timepicker.getHour();
                     int m = alarm_timepicker.getMinute();
 
                     //  int cc = alarm_timepicker.get()
 
-
-
-
-
                     //converting to String
                        String hour = String.valueOf(h);
                         String minute = String.valueOf(m);
-
-
 
                 //set pm
                 if (h > 12) {
                     hour = String.valueOf(h - 12);
                    // calendar.set(Calendar.AM_PM, Calendar.PM);
                 }//end of if
-
-
 
                 //set formation for minutes
                 if (m < 10) {
@@ -131,10 +117,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 }
                 */
 
-
                 //will update textview
                 set_alarm_text("Alarm was set to " +hour + " : " +minute + "  ");
-
 
                 //put in extra string into intent
                 //which will tell that you press START ALARm
@@ -148,25 +132,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 intent.putExtra("sound_choose_pass", choose_sound);
                 Log.i("Choose Sound ID MainA", String.valueOf(choose_sound));
 
-
-
-
             //Create pending intent
                 pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0,
                       intent, PendingIntent.FLAG_UPDATE_CURRENT );
-
 
                 //set the alarm manager
                 alar_manager.set(AlarmManager.RTC_WAKEUP,
                         calendar.getTimeInMillis(), pendingIntent);
 
-
-
-
-
                 } //end IF statement
-
-
 
                 else {
                     //do something when unchecked
@@ -191,17 +165,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     //sendBroadcast will send signal to alarm receiver
                     sendBroadcast(intent);
 
-
-
-
                 }
             }
             }
         );//end of setOnCheckedChangeListener
-
-
-
-
 
 /*
         //create onClickListeners for buttons
@@ -219,7 +186,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                // String result = "!!";
 
               //  calendar.get(Calendar.AM_PM);
-//hey
+
 
                //void bo = calendar.set(Calendar.AM_PM,Calendar.AM);
 
@@ -251,9 +218,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 //int m = alarm_timepicker.getMinute();
 
               //  int cc = alarm_timepicker.get()
-
-
-
 
 
                 //converting to String
@@ -302,9 +266,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 intent.putExtra("sound_choose_pass", choose_sound);
                 Log.i("Choose Sound ID MainA", String.valueOf(choose_sound));
 
-
-
-
             //Create pending intent
                 pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0,
                       intent, PendingIntent.FLAG_UPDATE_CURRENT );
@@ -314,19 +275,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 alar_manager.set(AlarmManager.RTC_WAKEUP,
                         calendar.getTimeInMillis(), pendingIntent);
 
-
             }
         });// end of start_b Listener
-
-
-
-
-
-
-
-
-
-
 
         Button stop_b = (Button) findViewById(R.id.stop_button);
         stop_b.setOnClickListener(new View.OnClickListener() {
@@ -354,8 +304,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 //stop the ringtone
                 //sendBroadcast will send signal to alarm receiver
                 sendBroadcast(intent);
-
-
 
             }
         }); // end of stop_b

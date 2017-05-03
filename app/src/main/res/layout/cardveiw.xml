@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    android:tag="cards main container"
+    android:background="@color/cardview_dark_background">
 
     <android.support.v7.widget.CardView
     android:id="@+id/card_view"
@@ -9,48 +14,56 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_margin="5dp">
+    android:layout_margin="5dp"
+        card_view:cardElevation="5dp"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardBackgroundColor="@color/cardview_light_background"
+        card_view:cardCornerRadius="10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
+
+
             >
 
             <ImageView
+                android:id="@+id/alarmImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/alarmImage"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginRight="16dp"
-                />
+                android:layout_marginRight="26dp"
+                android:src="@drawable/alarmclock" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/timeDisplay"
-                android:layout_toRightOf="@+id/alarmImage"
-                android:layout_alignParentTop="true"
-                android:textSize="30sp"
-                />
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/daysTV"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="25dp"
                 android:layout_toRightOf="@+id/alarmImage"
+                android:text="8:00 AM"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/daysTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/timeDisplay"
-                />
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/alarmImage"
+                android:text="Every Day" />
 
             <ToggleButton
                 android:id="@+id/alarmToggle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/timeDisplay"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/timeDisplay"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/timeDisplay"
+                android:layout_toRightOf="@+id/timeDisplay" />
 
         </RelativeLayout>
 

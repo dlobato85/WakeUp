@@ -1,34 +1,37 @@
 package com.dustin_domas_assignment.wakeup;
 
+import android.icu.util.Calendar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ToggleButton;
 
+import java.util.ArrayList;
+import java.util.List;
 
-public class Alarm extends AppCompatActivity {
-    public int icon;
+
+public class AlarmCard extends AppCompatActivity {
+
+
     public String time;
     public String title;
     public ToggleButton togglesAlarm;
 
-    public Alarm(){
+    public AlarmCard(){
+
+        title = "Alarm";
+
 
     }
 
-    public Alarm(int ic, String tm, String title){
-        this.icon = ic;
+    public AlarmCard( String tm, String title){
+
+
         this.time = tm;
         this.title = title;
-
     }
 
 
-    public int getIcon() {
-        return icon;
-    }
 
-    public void setIcon(int icon) {
-        this.icon = icon;
-    }
+
 
     public String getTime() {
         return time;

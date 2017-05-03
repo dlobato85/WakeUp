@@ -84,7 +84,7 @@ public class RingtonePlayingService extends Service {
                 .setContentTitle("ALARM IS GOING OFF")
                 .setContentText("Click me")
                 .setContentIntent(pending_main)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.addalarm)
                 .setAutoCancel(true)
                 .build();
 
@@ -100,7 +100,7 @@ public class RingtonePlayingService extends Service {
         //music should start playing
         if (! this.isRunning && startId == 1) {
 
-            Log.i ("THERE IS NO MUSIC", "WANT TO START!!!!!!!!!!!!!!!!!");
+            Log.i("THERE IS NO MUSIC", "WANT TO START!!!!!!!!!!!!!!!!!");
 
 
             this.isRunning = true;
@@ -109,9 +109,6 @@ public class RingtonePlayingService extends Service {
 
             //allow notification to display when alarm is on
             notificationManager.notify(0, notification);
-
-
-
 
 
             //play the song based on id from MainActivity Spinner
@@ -142,24 +139,68 @@ public class RingtonePlayingService extends Service {
             }
 
       */
-            if (sound_pick == 0){
+            if (sound_pick == 0) {
 
                 media_song = MediaPlayer.create(this, R.raw.example_sound);
                 media_song.start();
                 media_song.setLooping(true);
 
-            }
-
-            else if (sound_pick == 1){
+            } else if (sound_pick == 1) {
 
                 media_song = MediaPlayer.create(this, R.raw.tv_wave_example);
                 media_song.start();
                 media_song.setLooping(true);
 
+            } else if (sound_pick == 2) {
+
+                media_song = MediaPlayer.create(this, R.raw.formula_1_sound);
+                media_song.start();
+                media_song.setLooping(true);
+
+
+            }
+            else if (sound_pick == 3) {
+
+                media_song = MediaPlayer.create(this, R.raw.train_sound);
+                media_song.start();
+                media_song.setLooping(true);
+
+
             }
 
+            else if (sound_pick == 4) {
 
-        }
+                media_song = MediaPlayer.create(this, R.raw.dixie_horn);
+                media_song.start();
+                media_song.setLooping(true);
+
+
+            }
+            else if (sound_pick == 5) {
+
+                media_song = MediaPlayer.create(this, R.raw.annoying_alarm);
+                media_song.start();
+                media_song.setLooping(true);
+
+
+            }
+            else if (sound_pick == 6) {
+
+                media_song = MediaPlayer.create(this, R.raw.zombie_sound);
+                media_song.start();
+                media_song.setLooping(true);
+
+
+            }
+            else if (sound_pick == 7) {
+
+                media_song = MediaPlayer.create(this, R.raw.drummer_sound);
+                media_song.start();
+                media_song.setLooping(true);
+
+
+            }
+        }// end of if statement which allows to play selected music
 
         //if music is playing and the user press "alarm OFF"
         //stop playing
@@ -201,7 +242,7 @@ public class RingtonePlayingService extends Service {
         //do nothing
         else if (this.isRunning && startId == 1) {
 
-            Log.i ("THERE IS MUSIC", "WHANT TO START!!!!!!!!!!!!!!!!!");
+            Log.i ("THERE IS MUSIC", "WANT TO START!!!!!!!!!!!!!!!!!");
 
             this.isRunning = false;
             this.startId = 1;

@@ -10,9 +10,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-/**
- * Created by dustinlobato on 4/19/17.
- */
 
 public class QuestionActivity extends AppCompatActivity {
 

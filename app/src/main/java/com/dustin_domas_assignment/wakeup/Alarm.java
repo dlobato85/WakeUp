@@ -3,9 +3,6 @@ package com.dustin_domas_assignment.wakeup;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ToggleButton;
 
-/**
- * Created by dustinlobato on 4/19/17.
- */
 
 public class Alarm extends AppCompatActivity {
     public int icon;

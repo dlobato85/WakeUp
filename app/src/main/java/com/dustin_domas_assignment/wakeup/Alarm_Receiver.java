@@ -5,9 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-/**
- * Created by Domo
- */
+
 
 public class Alarm_Receiver extends BroadcastReceiver {
 

@@ -5,7 +5,9 @@ import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
@@ -62,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         imageView.setImageDrawable(svg.createPictureDrawable());
 
 */
+
+
+
 
 
         //initialize timepicker
@@ -339,6 +344,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
+
        
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,

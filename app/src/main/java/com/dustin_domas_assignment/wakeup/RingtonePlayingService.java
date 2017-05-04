@@ -148,6 +148,48 @@ public class RingtonePlayingService extends Service {
                 media_song.setLooping(true);
 
             }
+            else if (sound_pick == 2){
+
+                media_song = MediaPlayer.create(this, R.raw.formula_1_sound);
+                media_song.start();
+                media_song.setLooping(true);
+
+            }
+            else if (sound_pick == 3){
+
+                media_song = MediaPlayer.create(this, R.raw.train_sound);
+                media_song.start();
+                media_song.setLooping(true);
+
+            }
+            else if (sound_pick == 4){
+
+                media_song = MediaPlayer.create(this, R.raw.dixie_horn);
+                media_song.start();
+                media_song.setLooping(true);
+
+            }
+            else if (sound_pick == 5){
+
+                media_song = MediaPlayer.create(this, R.raw.annoying_alarm);
+                media_song.start();
+                media_song.setLooping(true);
+
+            }
+            else if (sound_pick == 6){
+
+                media_song = MediaPlayer.create(this, R.raw.zombie_sound);
+                media_song.start();
+                media_song.setLooping(true);
+
+            }
+            else if (sound_pick == 7){
+
+                media_song = MediaPlayer.create(this, R.raw.drummer_sound);
+                media_song.start();
+                media_song.setLooping(true);
+
+            }
 
 
         }

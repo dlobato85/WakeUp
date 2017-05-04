@@ -64,6 +64,7 @@
         android:layout_alignBottom="@+id/switch_button"
         android:layout_alignParentStart="true"
         android:background="@drawable/border"
+        android:alpha=".65"
         />
 
     <Spinner
@@ -74,8 +75,8 @@
         android:layout_alignParentEnd="true"
         android:background="@color/colorPrimary"
         android:alpha=".65"
-        android:textSize="18sp"
-        android:popupBackground="@color/colorPrimary"
+        android:textSize="22sp"
+        android:popupBackground="@color/colorPrimary2"
 
 
 
@@ -86,9 +87,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Switch"
+
         android:layout_below="@+id/timePicker"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="41dp" />
+        android:layout_marginEnd="41dp"
+        android:scaleX="1.5"
+        android:scaleY="1.5"/>
 
 </RelativeLayout>

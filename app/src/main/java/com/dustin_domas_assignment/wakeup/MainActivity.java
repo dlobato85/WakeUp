@@ -5,7 +5,9 @@ import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
@@ -62,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         imageView.setImageDrawable(svg.createPictureDrawable());
 
 */
+
+
+
 
 
         //initialize timepicker
@@ -157,7 +162,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                       intent, PendingIntent.FLAG_UPDATE_CURRENT );
 
                 //set the alarm manager
-                alar_manager.set(AlarmManager.RTC_WAKEUP,
+                    //RTC_WAKE Fires the pending intent at a specified time, waking up the device if asleep.
+                alar_manager.setExact(AlarmManager.RTC_WAKEUP,
                         calendar.getTimeInMillis(), pendingIntent);
 
                 } //end IF statement
@@ -171,6 +177,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                     //will cancel the alarm
                     alar_manager.cancel(pendingIntent);
+
+                  //  String state = intent.getExtras().getString("extra");
+
+                   
+
 
 
                     //put extra string into intent
@@ -339,6 +350,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
+
        
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -426,7 +438,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                     + "<h3>Background:</h3>"
                                     + "<font color='#FF7F27'><a href=\"https://pixabay.com/en/yellow-red-blue-green-293875/\">pixabay.com</a> </font>"
                                     +"<br>"
-                                    + "<font color='#FF7F27'><a href=\"http://stackoverflow.com/questions/10095335/android-link-in-dialog\">Stackoverflow</a> </font>"
+                                    +"<h3>Code Credit:</h3>"
+                                    + "<font color='#FF7F27'><a href=\"https://www.youtube.com/watch?v=xbBlzOblD10&list=PL4uut9QecF3DLAacEoTctzeqTyvgzqYwA\">Youtube Tutorial</a> </font>"
+                                    +"<br>"
+                                    + "<font color='#FF7F27'><a href=\"http://www.parallelcodes.com/android-game-tutorial/\">Database Example</a> </font>"
                             ))
                             .show()
 

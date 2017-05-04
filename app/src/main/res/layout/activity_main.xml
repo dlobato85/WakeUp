@@ -26,29 +26,7 @@
         android:timePickerMode="clock"
         android:headerBackground="@color/colorPrimaryDark"
         android:alpha=".65"/>
-<!--
-    <Button
-        android:id="@+id/start_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ON"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="380dp"
-        android:layout_below="@+id/timePicker"
-        android:layout_alignParentStart="true" />
 
-    <Button
-        android:id="@+id/stop_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="OFF"
-        tools:layout_editor_absoluteX="294dp"
-        tools:layout_editor_absoluteY="380dp"
-        android:layout_alignBaseline="@+id/start_button"
-        android:layout_alignBottom="@+id/start_button"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="16dp" />
-        -->
 
     <TextView
         android:id="@+id/update_textview"
@@ -58,12 +36,14 @@
         android:text="Choose your alarm wisely!"
         android:textAlignment="gravity"
         android:gravity="left"
+        android:textColor="@color/colorText"
 
 
         android:layout_alignBaseline="@+id/switch_button"
         android:layout_alignBottom="@+id/switch_button"
         android:layout_alignParentStart="true"
         android:background="@drawable/border"
+        android:alpha=".65"
         />
 
     <Spinner
@@ -72,12 +52,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:background="@color/colorPrimary"
-        android:alpha=".65"
-        android:textSize="18sp"
-        android:popupBackground="@color/colorPrimary"
+        android:background="@color/colorPrimary2"
 
-
+        android:textSize="22sp"
+        android:popupBackground="@color/colorPrimary2"
 
         />
 
@@ -86,9 +64,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Switch"
+
         android:layout_below="@+id/timePicker"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="41dp" />
+        android:layout_marginEnd="41dp"
+        android:scaleX="1.5"
+        android:scaleY="1.5"/>
 
 </RelativeLayout>

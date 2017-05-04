@@ -49,7 +49,7 @@ public class QuestionActivity extends AppCompatActivity {
         option_C = (Button) findViewById(R.id.optionC_button);
         option_D = (Button) findViewById(R.id.optionD_button);
 
-        timeLeft = (ProgressBar) findViewById(R.id.timeBar);
+        //timeLeft = (ProgressBar) findViewById(R.id.timeBar);
 
 
         //setting button onClickListeners
@@ -116,7 +116,13 @@ public class QuestionActivity extends AppCompatActivity {
             //insert notification eliminator
             Intent intent = new Intent(this, MainActivity.class);
             Bundle bund = new Bundle();
+
+
             startActivity(intent);
+
+
+
+
         }
         else if(activeQuestion.getANSWER() == userAnswer && answerFlag == false){
 

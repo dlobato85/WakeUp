@@ -90,7 +90,7 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
 
                 notifyItemRemoved(position);
 
-                Toast.makeText(adContext,"Deleted  ",Toast.LENGTH_SHORT).show();
+                Toast.makeText(adContext,"Alarm Was Successfully Deleted  ",Toast.LENGTH_SHORT).show();
                 //removeBroadcast();
             }
 
@@ -102,17 +102,6 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
         alarmData.add(position,item);
        // notifyItemInserted(position);
     }
-
-/*
-    public void remove(AlarmCard item ,int position ) {
-        alarmData.remove(position);
-
-        notifyItemRemoved(position);
-
-        Toast.makeText(adContext,"Deleted  ",Toast.LENGTH_SHORT).show();
-
-    }
-*/
 
 
     @Override

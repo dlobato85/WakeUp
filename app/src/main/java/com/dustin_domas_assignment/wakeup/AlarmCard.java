@@ -44,13 +44,5 @@ public class AlarmCard extends AppCompatActivity {
     public void setTitle(String title) {
         this.title = title;
     }
-/*
-    public ToggleButton getTogglesAlarm() {
-        return togglesAlarm;
-    }
 
-    public void setTogglesAlarm(ToggleButton togglesAlarm) {
-        this.togglesAlarm = togglesAlarm;
-    }
-    */
 }

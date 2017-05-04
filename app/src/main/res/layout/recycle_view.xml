@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
      android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:background="#152B46"
+    android:background="@drawable/ic_dot"
     android:padding="10dp"
     android:orientation="vertical"
-    tools:context=".MainListActivity">
+    tools:context=".MainListActivity"
+    >
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rcV"
@@ -15,7 +16,9 @@
         android:layout_height="wrap_content"
         android:scrollbars="vertical"
         android:clickable="true"
-         />
+        android:layout_above="@+id/addAlarm"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
 
     <ImageButton
         android:id="@+id/addAlarm"
@@ -25,9 +28,9 @@
         android:baselineAlignBottom="true"
         android:cropToPadding="false"
         android:padding="0dp"
-        android:src="@drawable/addalarm"
-        android:layout_below="@id/rcV"
-        />
+        android:src="@drawable/plus"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

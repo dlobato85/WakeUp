@@ -80,7 +80,7 @@ public class RingtonePlayingService extends Service {
                 .setContentTitle("ALARM IS GOING OFF")
                 .setContentText("Click me")
                 .setContentIntent(pending_main)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.addalarm)
                 .setAutoCancel(true)
                 .build();
 

@@ -52,12 +52,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:background="@color/colorPrimary"
-        android:alpha=".65"
+        android:background="@color/colorPrimary2"
+
         android:textSize="22sp"
         android:popupBackground="@color/colorPrimary2"
-
-
 
         />
 

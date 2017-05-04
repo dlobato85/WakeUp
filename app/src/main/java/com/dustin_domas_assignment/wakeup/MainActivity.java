@@ -432,7 +432,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                     + "<h3>Background:</h3>"
                                     + "<font color='#FF7F27'><a href=\"https://pixabay.com/en/yellow-red-blue-green-293875/\">pixabay.com</a> </font>"
                                     +"<br>"
-                                    + "<font color='#FF7F27'><a href=\"http://stackoverflow.com/questions/10095335/android-link-in-dialog\">Stackoverflow</a> </font>"
+                                    +"<h3>Code Credit:</h3>"
+                                    + "<font color='#FF7F27'><a href=\"https://www.youtube.com/watch?v=xbBlzOblD10&list=PL4uut9QecF3DLAacEoTctzeqTyvgzqYwA\">Youtube Tutorial</a> </font>"
+                                    +"<br>"
+                                    + "<font color='#FF7F27'><a href=\"http://www.parallelcodes.com/android-game-tutorial/\">Database Example</a> </font>"
                             ))
                             .show()
 

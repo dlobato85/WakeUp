@@ -13,23 +13,18 @@ public class AlarmCard extends AppCompatActivity {
 
     public String time;
     public String title;
-    public ToggleButton togglesAlarm;
+    //public ToggleButton togglesAlarm;
 
     public AlarmCard(){
 
-        title = "Alarm";
-
-
+        //title = "Alarm";
     }
 
     public AlarmCard( String tm, String title){
 
-
         this.time = tm;
         this.title = title;
     }
-
-
 
 
 
@@ -49,7 +44,7 @@ public class AlarmCard extends AppCompatActivity {
     public void setTitle(String title) {
         this.title = title;
     }
-
+/*
     public ToggleButton getTogglesAlarm() {
         return togglesAlarm;
     }
@@ -57,4 +52,5 @@ public class AlarmCard extends AppCompatActivity {
     public void setTogglesAlarm(ToggleButton togglesAlarm) {
         this.togglesAlarm = togglesAlarm;
     }
+    */
 }

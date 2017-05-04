@@ -1,10 +1,13 @@
 package com.dustin_domas_assignment.wakeup;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -13,15 +16,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainListActivity extends AppCompatActivity {
+public class MainListActivity extends AppCompatActivity implements View.OnClickListener {
 
-
+    Context mainContext;
    private List<AlarmCard> alarms;
+    AlarmAdapter alarmAdapter;
 
-    private ImageButton addAlarm;
     private RecyclerView rView;
     private LinearLayoutManager linLayout;
-    int icon_id;
+
+    private ImageButton addAlarm;
+    private static final int SECOND_ACTIVITY_RESULT_CODE = 0;
+
+    int position1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,49 +36,70 @@ public class MainListActivity extends AppCompatActivity {
 
         setContentView(R.layout.recycle_view);
 
+        mainContext = getApplicationContext();
+
         rView = (RecyclerView) findViewById(R.id.rcV);
         rView.setHasFixedSize(true);//Will not be changing size
 
         linLayout = new LinearLayoutManager(this);//linLayout for item positions
-
         rView.setLayoutManager(linLayout);
+
         addAlarm = (ImageButton) findViewById(R.id.addAlarm);
 
         alarms = new ArrayList<>();
 
-
-        if(alarms == null && alarms.size() == 0){
-            createAlarm();
-        }
-
-        createAdapter();
-        addAlarm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //icon_id = getDrawable(R.drawable.alarmclock);
-                //alarms = new ArrayList<Alarm>();
-               // alarms.add(new Alarm(R.id.alarmImage,"8:00","Everyday "));
-
-                //createAdapter();
-
-            }
+        position1 = 0;
 
 
-        });
+       if( alarms.size() == 0) {
+           createDefaultAlarm();
+       }
 
-       createAdapter();
+        //createAdapter();
+        addAlarm.setOnClickListener(this);
+
+       //createAdapter();
     }
 
     private void createAdapter(){
-       AlarmAdapter alarmAdapter = new AlarmAdapter(alarms);
+       alarmAdapter = new AlarmAdapter(mainContext, alarms);
 
-       rView.setAdapter(alarmAdapter);
+       rView.setAdapter( alarmAdapter);
     }
 
-    private void createAlarm(){
+    private void createDefaultAlarm(){
         alarms.add(new AlarmCard("8:00 AM"," Everyday "));
+        Log.i("IN CREATE ALARM +++",""+alarms.size());
         createAdapter();
     }
 
+    public void updateAdapter(){
 
-}
+
+
+    }
+
+
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivityForResult(intent,SECOND_ACTIVITY_RESULT_CODE);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //position1++;
+        if(requestCode==0){
+            String time = data.getStringExtra("Time");
+            Log.i("INTENT EXTTTTRA ", ""+time);
+            //alarms.add(new AlarmCard(time," Everyday "));
+            alarmAdapter.add(new AlarmCard(time," Everyday "),position1);
+            alarmAdapter.notifyItemInserted(position1);
+            rView.scrollToPosition(position1);
+
+        }
+
+    }
+    }

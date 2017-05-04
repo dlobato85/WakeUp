@@ -1,5 +1,6 @@
 package com.dustin_domas_assignment.wakeup;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -7,10 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -134,4 +140,67 @@ public class MainListActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
+
+
+    //Create action bar and assign menu layout
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
     }
+
+
+    //Set up buttons for action bar
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId() == R.id.about){
+
+            ((TextView)
+                    new AlertDialog.Builder(MainListActivity.this,R.style.DialogBox)
+                            //title is needed to create AlertDialio, this one will not show anything
+                            .setTitle(Html.fromHtml("<h1> &nbsp; WakeUP     &nbsp;   </h1>"))
+                            .setMessage(Html.fromHtml("<h2>Dustin Lobato</h2>"
+                                    + "<h2>Domas Budrys</h2>"
+                                    +"<br>"
+                                    + "<h3>Alarm Sound Options:</h3>"
+                                    + "<font color='#FF7F27'> <a href=\"http://soundbible.com/\">soundbible.com</a> </font>"
+                                    + "<h3>Icons:</h3>"
+                                    + "<font color='#FF7F27'><a href=\"https://icons8.com/\">icons8.com</a> </font>"
+                                    +"<br>"
+                                    + "<h3>Background:</h3>"
+                                    + "<font color='#FF7F27'><a href=\"https://pixabay.com/en/yellow-red-blue-green-293875/\">pixabay.com</a> </font>"
+                                    +"<br>"
+                                    + "<font color='#FF7F27'><a href=\"http://stackoverflow.com/questions/10095335/android-link-in-dialog\">Stackoverflow</a> </font>"
+                            ))
+                            .show()
+
+                            .findViewById(android.R.id.message))
+                    .setMovementMethod(LinkMovementMethod.getInstance());
+
+
+        }// end of if
+        else if (item.getItemId() == R.id.exit){
+
+            finish();
+            System.exit(0);
+        }// end of else if
+
+        return(super.onOptionsItemSelected(item));
+    }// end of onOptionsItemSelected
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+

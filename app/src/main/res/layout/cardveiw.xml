@@ -54,24 +54,16 @@
                 android:layout_toRightOf="@+id/alarmImage"
                 />
 
-            <ToggleButton
-                android:id="@+id/alarmToggle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="10dp"
-                android:onClick="onToggle"
-                android:layout_toEndOf="@+id/timeDisplay"
-                android:layout_toRightOf="@+id/timeDisplay"
-                android:background="@drawable/border2"/>
+
 
             <ImageButton
                 android:id="@+id/remove_Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/timeDisplay"
-                android:layout_toEndOf="@+id/alarmToggle"
-                card_view:srcCompat="@android:drawable/btn_dialog" />
+                android:src="@drawable/remove"
+                android:padding="0dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true" />
 
 
         </RelativeLayout>

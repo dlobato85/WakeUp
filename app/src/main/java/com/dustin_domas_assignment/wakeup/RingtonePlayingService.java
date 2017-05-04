@@ -80,7 +80,7 @@ public class RingtonePlayingService extends Service {
                 .setContentTitle("ALARM IS GOING OFF")
                 .setContentText("Click me")
                 .setContentIntent(pending_main)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.addalarm)
                 .setAutoCancel(true)
                 .build();
 
@@ -144,6 +144,48 @@ public class RingtonePlayingService extends Service {
             else if (sound_pick == 1){
 
                 media_song = MediaPlayer.create(this, R.raw.tv_wave_example);
+                media_song.start();
+                media_song.setLooping(true);
+
+            }
+            else if (sound_pick == 2){
+
+                media_song = MediaPlayer.create(this, R.raw.formula_1_sound);
+                media_song.start();
+                media_song.setLooping(true);
+
+            }
+            else if (sound_pick == 3){
+
+                media_song = MediaPlayer.create(this, R.raw.train_sound);
+                media_song.start();
+                media_song.setLooping(true);
+
+            }
+            else if (sound_pick == 4){
+
+                media_song = MediaPlayer.create(this, R.raw.dixie_horn);
+                media_song.start();
+                media_song.setLooping(true);
+
+            }
+            else if (sound_pick == 5){
+
+                media_song = MediaPlayer.create(this, R.raw.annoying_alarm);
+                media_song.start();
+                media_song.setLooping(true);
+
+            }
+            else if (sound_pick == 6){
+
+                media_song = MediaPlayer.create(this, R.raw.zombie_sound);
+                media_song.start();
+                media_song.setLooping(true);
+
+            }
+            else if (sound_pick == 7){
+
+                media_song = MediaPlayer.create(this, R.raw.drummer_sound);
                 media_song.start();
                 media_song.setLooping(true);
 

@@ -1,5 +1,6 @@
 package com.dustin_domas_assignment.wakeup;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -23,7 +24,7 @@ public class QuestionActivity extends AppCompatActivity {
     TextView textView_Question;
     ProgressBar timeLeft;
     Button option_A, option_B, option_C, option_D;
-
+    Context questContext;
 
     int questionID = 0;
     int numberOfQuestions;
@@ -40,7 +41,7 @@ public class QuestionActivity extends AppCompatActivity {
         QuestionDatabase db = new QuestionDatabase(this);//QuestionDatabase Class
         list_of_questions = db.getAllQuestions();//Getting all questions from database
 
-
+        questContext = getApplicationContext();
 
         textView_Question = (TextView) findViewById(R.id.textQuestion);
 
@@ -49,7 +50,7 @@ public class QuestionActivity extends AppCompatActivity {
         option_C = (Button) findViewById(R.id.optionC_button);
         option_D = (Button) findViewById(R.id.optionD_button);
 
-        //timeLeft = (ProgressBar) findViewById(R.id.timeBar);
+        timeLeft = (ProgressBar) findViewById(R.id.timeBar);
 
 
         //setting button onClickListeners
@@ -113,23 +114,26 @@ public class QuestionActivity extends AppCompatActivity {
     public void checkAnswer(String userAnswer){
 
         if(activeQuestion.getANSWER().equals(userAnswer) ){
-            //insert notification eliminator
+            //insert alarm eliminator alar_manager.cancel(pendingIntent);
+            //put extra string into intent
+            //to set OFFFFF button
+
+            Intent broadintent = new Intent( questContext,Alarm_Receiver.class);
+            broadintent.putExtra("extra", "alarm OFF");
+
+            //must put extra long to alarm off to prevent crashes if null
+          //  broadintent.putExtra("sound_choose_pass", choose_sound);
+
+            //stop the ringtone
+            //sendBroadcast will send signal to alarm receiver
+            sendBroadcast(broadintent);
+
             Intent intent = new Intent(this, MainActivity.class);
-            Bundle bund = new Bundle();
-
-
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
             startActivity(intent);
-
-
-
-
+            finish();
         }
-        else if(activeQuestion.getANSWER() == userAnswer && answerFlag == false){
 
-//add logic to print incorrect answer
-           setQuestion();
-
-        }
         else{
             setQuestion();
         }

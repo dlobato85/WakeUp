@@ -43,15 +43,13 @@ public class Alarm_Receiver extends BroadcastReceiver {
 
        context.startService(service_intent);
 
-
-        //fixes alarm on off switch triggering activity
-        if( state.equals("alarm ON")) {
+        if(state.equals("alarm ON")) {
             Intent quesIntent = new Intent(context, QuestionActivity.class);
             quesIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            quesIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             context.startActivity(quesIntent);
         }
 
-
-
     }// end of onReceiver
+
 }// end of Alarm_Receiver

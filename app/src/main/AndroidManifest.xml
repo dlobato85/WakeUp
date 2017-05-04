@@ -2,9 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dustin_domas_assignment.wakeup">
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/alarmlogo"
@@ -18,8 +15,7 @@
         <service android:name=".RingtonePlayingService"
             android:enabled="true"/>
 
-        <activity android:name=".MainActivity"
-                  android:screenOrientation="portrait">
+        <activity android:name=".MainListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,8 +23,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".QuestionActivity"
-                  android:screenOrientation="portrait">
+        <activity android:name=".QuestionActivity">
+
+        </activity>
+        <activity android:name=".MainActivity">
 
         </activity>
     </application>

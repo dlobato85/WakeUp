@@ -162,7 +162,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                       intent, PendingIntent.FLAG_UPDATE_CURRENT );
 
                 //set the alarm manager
-                alar_manager.set(AlarmManager.RTC_WAKEUP,
+                    //RTC_WAKE Fires the pending intent at a specified time, waking up the device if asleep.
+                alar_manager.setExact(AlarmManager.RTC_WAKEUP,
                         calendar.getTimeInMillis(), pendingIntent);
 
                 } //end IF statement
@@ -176,6 +177,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                     //will cancel the alarm
                     alar_manager.cancel(pendingIntent);
+
+                  //  String state = intent.getExtras().getString("extra");
+
+                   
+
 
 
                     //put extra string into intent

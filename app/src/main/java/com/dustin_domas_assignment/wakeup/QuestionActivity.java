@@ -116,7 +116,13 @@ public class QuestionActivity extends AppCompatActivity {
             //insert notification eliminator
             Intent intent = new Intent(this, MainActivity.class);
             Bundle bund = new Bundle();
+
+
             startActivity(intent);
+
+
+
+
         }
         else if(activeQuestion.getANSWER() == userAnswer && answerFlag == false){
 

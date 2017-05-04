@@ -105,34 +105,7 @@ public class RingtonePlayingService extends Service {
            notificationManager.notify(0, notification);
 
 
-            //play the song based on id from MainActivity Spinner
-/*
-            if(sound_pick == 0 ) {
-                // randomly picked audio file
 
-                int minimum_n = 1;
-                int max_n = 2;
-
-                Random random = new Random();
-                int random_n = random.nextInt(max_n + minimum_n );
-
-                Log.i ("This is random song", String.valueOf(random_n));
-
-
-                if(random_n == 1) {
-                    media_song = MediaPlayer.create(this, R.raw.example_sound);
-                    media_song.start();
-                    media_song.setLooping(true);
-                }
-                else  if (random_n == 2) {
-                    media_song = MediaPlayer.create(this, R.raw.tv_wave_example);
-                    media_song.start();
-                    media_song.setLooping(true);
-                }
-
-            }
-
-      */
             if (sound_pick == 0){
 
                 media_song = MediaPlayer.create(this, R.raw.example_sound);
@@ -253,7 +226,7 @@ public class RingtonePlayingService extends Service {
     public void onDestroy() {
 
         // Tell the user we stopped.
-        Toast.makeText(this, "on DEstroy CALLED", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "on Destroy was CALLED", Toast.LENGTH_SHORT).show();
 
         Log.i ("ON Destroy Method", "WAS CALLED");
 

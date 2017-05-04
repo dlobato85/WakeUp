@@ -121,10 +121,6 @@ public class QuestionActivity extends AppCompatActivity {
             Intent broadintent = new Intent( questContext,Alarm_Receiver.class);
             broadintent.putExtra("extra", "alarm OFF");
 
-            //must put extra long to alarm off to prevent crashes if null
-          //  broadintent.putExtra("sound_choose_pass", choose_sound);
-
-            //stop the ringtone
             //sendBroadcast will send signal to alarm receiver
             sendBroadcast(broadintent);
 

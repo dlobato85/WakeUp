@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +29,7 @@ public class MainListActivity extends AppCompatActivity implements View.OnClickL
 
     private ImageButton addAlarm;
     private static final int SECOND_ACTIVITY_RESULT_CODE = 0;
-
+    public ToggleButton toggles;
     int position1;
 
     @Override
@@ -54,7 +56,12 @@ public class MainListActivity extends AppCompatActivity implements View.OnClickL
 
         position1 = 0;
 
+/*
+        toggles = (ToggleButton) findViewById(R.id.alarmToggle);
 
+        onToggle(toggles);
+
+*/
        if( alarms.size() == 0) {
            createDefaultAlarm();
        }
@@ -64,6 +71,7 @@ public class MainListActivity extends AppCompatActivity implements View.OnClickL
 
        //createAdapter();
     }
+
 
     private void createAdapter(){
        alarmAdapter = new AlarmAdapter(mainContext, alarms);
@@ -125,4 +133,5 @@ public class MainListActivity extends AppCompatActivity implements View.OnClickL
         }
 
     }
+
     }

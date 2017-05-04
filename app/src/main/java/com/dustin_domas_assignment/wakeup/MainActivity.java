@@ -184,30 +184,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
     }//end of onCreate
-/*
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 1){
-            if(data.getBooleanExtra("killAlarm",true)){
-               alar_manager.cancel(pendingIntent);
-                Intent intent = new Intent(this.context, Alarm_Receiver.class);
-                intent.putExtra("extra", "alarm OFF");
-                intent.putExtra("sound_choose_pass", choose_sound);
 
-                //stop the ringtone
-                //sendBroadcast will send signal to alarm receiver
-                sendBroadcast(intent);
-                killAlarm();
-            };
 
-        }
-    }
-
-    public void killAlarm(){
-        finish();
-    }
-*/
     private void set_alarm_text(String s) {
 
         update_textview.setText(s);
@@ -222,8 +200,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //finding the id that user have selected
         choose_sound = (int) id;
-        Toast.makeText(this, "This is id number"
-                + id, Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, "This is id number"
+           //     + id, Toast.LENGTH_SHORT).show();
 
 
 

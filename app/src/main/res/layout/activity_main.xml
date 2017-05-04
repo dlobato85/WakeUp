@@ -26,29 +26,6 @@
         android:timePickerMode="clock"
         android:headerBackground="@color/colorPrimaryDark"
         android:alpha=".65"/>
-<!--
-    <Button
-        android:id="@+id/start_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ON"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="380dp"
-        android:layout_below="@+id/timePicker"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:id="@+id/stop_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="OFF"
-        tools:layout_editor_absoluteX="294dp"
-        tools:layout_editor_absoluteY="380dp"
-        android:layout_alignBaseline="@+id/start_button"
-        android:layout_alignBottom="@+id/start_button"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="16dp" />
-        -->
 
     <TextView
         android:id="@+id/update_textview"
@@ -86,10 +63,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Switch"
+
         android:checked="false"
         android:layout_below="@+id/timePicker"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="41dp" />
+        android:layout_marginEnd="41dp"
+        android:scaleX="1.5"
+        android:scaleY="1.5"/>
 
 </RelativeLayout>

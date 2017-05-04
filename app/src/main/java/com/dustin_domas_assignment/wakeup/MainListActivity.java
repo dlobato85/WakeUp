@@ -39,10 +39,14 @@ public class MainListActivity extends AppCompatActivity implements View.OnClickL
         mainContext = getApplicationContext();
 
         rView = (RecyclerView) findViewById(R.id.rcV);
-        rView.setHasFixedSize(true);//Will not be changing size
+
+        rView.setHasFixedSize(true);
+        //Will not be changing size
 
         linLayout = new LinearLayoutManager(this);//linLayout for item positions
         rView.setLayoutManager(linLayout);
+
+
 
         addAlarm = (ImageButton) findViewById(R.id.addAlarm);
 
@@ -68,7 +72,7 @@ public class MainListActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void createDefaultAlarm(){
-        alarms.add(new AlarmCard("8:00 AM"," Everyday "));
+        alarms.add(new AlarmCard("8:00 ","AM "));
         Log.i("IN CREATE ALARM +++",""+alarms.size());
         createAdapter();
     }
@@ -93,11 +97,30 @@ public class MainListActivity extends AppCompatActivity implements View.OnClickL
         //position1++;
         if(requestCode==0){
             String time = data.getStringExtra("Time");
-            Log.i("INTENT EXTTTTRA ", ""+time);
-            //alarms.add(new AlarmCard(time," Everyday "));
-            alarmAdapter.add(new AlarmCard(time," Everyday "),position1);
-            alarmAdapter.notifyItemInserted(position1);
-            rView.scrollToPosition(position1);
+
+            int some = 0;
+
+            try {
+                some = Integer.parseInt(time.toString());
+            } catch(NumberFormatException nfe) {
+                System.out.println("Could not parse " + nfe);
+            }
+
+            if( some > 12) {
+
+                Log.i("INTENT EXTTTTRA ", "" + time);
+                //alarms.add(new AlarmCard(time," Everyday "));
+                alarmAdapter.add(new AlarmCard(time, " PM "), position1);
+                alarmAdapter.notifyItemInserted(position1);
+                rView.scrollToPosition(position1);
+            }
+            else {
+                Log.i("INTENT EXTTTTRA ", "" + time);
+                //alarms.add(new AlarmCard(time," Everyday "));
+                alarmAdapter.add(new AlarmCard(time, " AM "), position1);
+                alarmAdapter.notifyItemInserted(position1);
+                rView.scrollToPosition(position1);
+            }
 
         }
 

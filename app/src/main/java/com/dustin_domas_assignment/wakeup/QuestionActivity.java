@@ -50,7 +50,7 @@ public class QuestionActivity extends AppCompatActivity {
         option_C = (Button) findViewById(R.id.optionC_button);
         option_D = (Button) findViewById(R.id.optionD_button);
 
-        timeLeft = (ProgressBar) findViewById(R.id.timeBar);
+
 
 
         //setting button onClickListeners

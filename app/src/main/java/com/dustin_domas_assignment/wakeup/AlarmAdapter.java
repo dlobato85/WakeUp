@@ -1,7 +1,9 @@
 package com.dustin_domas_assignment.wakeup;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.LayoutRes;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,9 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import java.util.ArrayList;
@@ -19,21 +23,27 @@ import java.util.List;
 
 
 
-public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHolder> {
+public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHolder>  {
 
     private  List<AlarmCard> alarmData;
     private Context adContext;
+
+    public AlarmAdapter(){
+
+    }
 
     public AlarmAdapter(Context c,List<AlarmCard> data) {
         adContext = c;
         alarmData = data;
     }
 
-// will create the Card view with the alarm attributes
+
+    // will create the Card view with the alarm attributes
     public static class AlarmViewHolder extends RecyclerView.ViewHolder{
 
-        TextView timeDisplay;
-        TextView alaDays;
+        public  TextView timeDisplay;
+        public TextView alaDays;
+        public ImageButton removeButton;
 
         AlarmViewHolder(View view){
             super(view);
@@ -42,6 +52,7 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
         * */
             timeDisplay = (TextView) view.findViewById(R.id.timeDisplay);
             alaDays = (TextView) view.findViewById(R.id.daysTV);
+            removeButton = (ImageButton) view.findViewById(R.id.remove_Button);
 
         }
 
@@ -64,12 +75,26 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
     }
 
     @Override
-    public void onBindViewHolder(AlarmViewHolder holder, int position) {
+    public void onBindViewHolder(AlarmViewHolder holder, final int position) {
 
-        AlarmCard al = alarmData.get(position);
+        final AlarmCard al = alarmData.get(position);
 
         holder.timeDisplay.setText(al.getTime());
         holder.alaDays.setText(al.get_title());
+
+        holder.removeButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                alarmData.remove(position);
+
+                notifyItemRemoved(position);
+
+                Toast.makeText(adContext,"Deleted  ",Toast.LENGTH_SHORT).show();
+                //removeBroadcast();
+            }
+
+        });
     }
 
     public void add(AlarmCard item, int position) {
@@ -78,13 +103,16 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.AlarmViewHol
        // notifyItemInserted(position);
     }
 
+/*
+    public void remove(AlarmCard item ,int position ) {
+        alarmData.remove(position);
 
-    public void remove(AlarmCard item) {
-        int pos = alarmData.indexOf(item);
-        alarmData.remove(pos);
-        notifyItemRemoved(pos);
+        notifyItemRemoved(position);
+
+        Toast.makeText(adContext,"Deleted  ",Toast.LENGTH_SHORT).show();
 
     }
+*/
 
 
     @Override

@@ -50,7 +50,7 @@ public class QuestionActivity extends AppCompatActivity {
         option_C = (Button) findViewById(R.id.optionC_button);
         option_D = (Button) findViewById(R.id.optionD_button);
 
-        timeLeft = (ProgressBar) findViewById(R.id.timeBar);
+
 
 
         //setting button onClickListeners
@@ -121,10 +121,6 @@ public class QuestionActivity extends AppCompatActivity {
             Intent broadintent = new Intent( questContext,Alarm_Receiver.class);
             broadintent.putExtra("extra", "alarm OFF");
 
-            //must put extra long to alarm off to prevent crashes if null
-          //  broadintent.putExtra("sound_choose_pass", choose_sound);
-
-            //stop the ringtone
             //sendBroadcast will send signal to alarm receiver
             sendBroadcast(broadintent);
 

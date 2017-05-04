@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 if (h > 12) {
                     hour = String.valueOf(h - 12);
                     format = "PM";
+
                 }//end of if
                 else {
                     format = "AM";}
@@ -134,6 +135,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     String passTime = hour+":"+minute;
                     Intent intent = new Intent(MainActivity.this,MainListActivity.class);
                     intent.putExtra("Time",passTime);
+
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                     setResult(0,intent);
